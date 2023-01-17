@@ -39,3 +39,15 @@ objProfessor.curso
 console.log(" chamando o método do professor")
 
 objProfessor.mistrarAula();
+
+
+
+function eventoOnLoad(){
+    console.log("Evento on load disparado");
+}
+
+var tarefa = "JS em execução";
+
+function eventoOnClick(){
+    console.log("JS executado com sucesso");
+}
