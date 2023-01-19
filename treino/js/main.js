@@ -3,7 +3,7 @@
 /* comentário de varias linhas
 
 */
-
+/*
 var tarefa = "isso é uma string";
 
 console.log(tarefa)
@@ -12,7 +12,7 @@ console.log(typeof(tarefa))
 var tarefa2 = new String("string criada com construtor");
 console.log(tarefa2)
 console.log(typeof(tarefa2))
-/*
+
 var nomeCliente = new String("Fábio");
 var renda = new Number(1000);
 var dataNascimento = new Date("2000-03-01");
@@ -33,7 +33,7 @@ console.log(typeof(ativo));
 var resultado = ativo == true ? "Verdade" : "falso"
 console.log(resultado);
 
-*/
+
 var nomeCliente = new String("Fábio");
 var renda = new Number(1000);
 var dataNascimento = new Date("2000-03-01");
@@ -113,6 +113,213 @@ console.log(obj1.matricula)
 
 
 
-//objeto em 
+// ARRAYs
+//Literal
+var array = []
+array[0] = 'teste';
+
+array.push("teste 2")
+
+var nomes = ['paulo', 'joao', 'maria']
+
+console.log("array: ", nomes[2])
+
+
+//Construtor
+
+var numeros = new Array(1, 2, 3, 4); //assim ele interpreta como sendo itens do array
+
+var numeros2 = new Array(2); //Assim ele interpreta como um array de duas posições, ou seja, quando passa só um item é tamanho do array
+
+//Criando array de tipagem fraca
+
+var arrayTipagemFraca = [
+    "string",
+    25.90,
+    true,
+    {livro: 'js', detalhe: 'sinopse'}
+]
+
+var a = [1, 2, 3, 4]
+var existe = 5 in a; //Retorna true ou false, se existir o index 5 em a ou não
+
+var vetor = [4, 5, 2, 1]
+vetor.splice(2, 1) //exclui a posição 2 do vetor
+
+
+vetor.length = 5; //definir tamanho de array
+
+//congelando a propriedade lenght para apenas leitura
+
+Object.defineProperty(vetor, 'length', {writable: false})
+
+
+
+//iterando array
+
+var array = [1, 2, 3, 'a', 'b', 'c', [1, 'a'], null, {nome:'maria'}, true, 2.2, undefined]
+
+for (var index = 0; index < array.length; index++){
+    if(array[index] == null || array[index] == undefined) continue // ignora nulls e undefineds
+    console.log("Index: " +index, 'valor: ' + array[index])
+}
+
+//for in
+
+for (var index in array){
+    //for in também itera em propriedades herdadas
+    if(!array.hasOwnProperty(index)) continue //caso queira pular propriedades herdadas
+    if(isNaN(index) && index >= 0) continue
+    console.log('index: ' + index, 'valor: ' + array[index])
+}
+
+
+//for each, adicionado no ECMAscript 5 no Array.prototype
+
+var totalVenda = 0;
+var vendaItens = [
+    {codigo: 1, preco: 2.2, qtde: 2},
+    {codigo: 2, preco: 10, qtde: 5},
+    {codigo: 3, preco: 5, qtde: 1}
+
+]
+
+vendaItens.forEach(function(item, index, vendaItens){
+
+    var subTotal = item.qtde * item.preco
+
+    totalVenda += subTotal;
+
+    item.subTotal = subTotal;
+
+})
+
+console.log("total: R$ - ", totalVenda)
+
+// Array de arrays
+
+
+var arrayMulti = [[1,2,3], ['a', 'b', 'c']]
+
+console.log(arrayMulti[0][1])
+
+
+
+//Array.join() para juntar elementos de um array e retornar uma string
+
+var numeros = [1,2,3,4,5,6,7,8,9]
+
+var stringDoVetor = numeros.join();
+ 
+
+
+
+var numeros = [2, 4, 6, 8, 10]
+
+var dobro = numeros.map(function(valorElementoArray, a, b){
+    return valorElementoArray * 2;
+})
+
+console.log(dobro)
+
+
+
+var nomes = ['maria1', 'maria2', 'maria3']
+var numeros = [2,4, 6, 7, 8, 10]
+
+var subConjuntoNumeros = numeros.filter(function(valor, indice, array){
+    return valor > 5;
+});
+
+console.log(subConjuntoNumeros)
+
+*/
+
+
+////Reduce - reduceRight
+
+var testeReduce = [1,2, 3, 4, 5];
+
+var retornoReduce = testeReduce.reduce(function(acumulador, valorEleArray, indice, array){
+    console.log('acumlador: ', acumulador)
+    console.log('acumlador: ', valorEleArray)
+    console.log('acumlador: ', indice)
+    console.log('--------------------------------')
+    
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
