@@ -233,7 +233,7 @@ var subConjuntoNumeros = numeros.filter(function(valor, indice, array){
 
 console.log(subConjuntoNumeros)
 
-*/
+
 
 
 ////Reduce - reduceRight
@@ -247,6 +247,104 @@ var retornoReduce = testeReduce.reduce(function(acumulador, valorEleArray, indic
     console.log('--------------------------------')
     
 })
+
+
+
+
+// Funções
+
+var elevarAoQuadrado = function(numero){
+    return numero * numero;
+}
+
+console.log('elevarAoQuadrado(8)', elevarAoQuadrado(8))
+
+
+
+
+*/
+
+
+function somar(a, b){return a + b}
+
+function subtrair(a, b){return a - b}
+
+calculadora.operacoes =[]
+calculadora.contador = 0
+
+function calculadora(operacao, operando1, operando2){
+    var resultado = 0
+    if (operacao == 'somar'){
+        resultado = somar(operando1, operando2)
+    } else if(operacao == 'subtrair'){
+        resultado = subtrair(operando1, operando2)
+    } else {
+        return 'operacao invalida'
+    }
+
+    setarMemoriaCalculadora(operacao, operando1, operando2, resultado)
+    return resultado
+}
+
+console.log(calculadora('somar', 20, 35))
+
+function setarMemoriaCalculadora(operacao, operando1, operando2, resultado){
+    var objCalc = {
+        operacao: operacao, operando1: operando1, operando2: operando2
+    }
+    
+    calculadora.operacoes.push(objCalc)
+    calculadora.contador++
+}
+
+calculadora.exibirOperacoesRealizadas = function(){
+    console.log("####>" + calculadora.contador + "operacoes realizadas")
+
+    for(var op of calculadora.operacoes){
+        var sinal = op.operacao == 'somar' ? '+' : '-'
+        console.log('->>>' + op.operacao + ":")
+        console.log('->>>' + op.operando1 + sinal + op.operando2 + '=' + op.resultado)
+    }
+}
+
+calculadora.exibirOperacoesRealizadas();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
